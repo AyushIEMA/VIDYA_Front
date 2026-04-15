@@ -2,9 +2,7 @@ import axios from 'axios';
 
 const api = axios.create({
   //baseURL: 'http://localhost:8080/api'
- //baseURL:'http://192.168.29.231:8080/api'
- //dploymnt
-   baseURL: 'https://vidya-backend-ft93.onrender.com/api'
+  baseURL:' https://vidya-backend-ft93.onrender.com/api'
 });
 
 api.interceptors.request.use(

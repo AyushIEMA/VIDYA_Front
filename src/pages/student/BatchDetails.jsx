@@ -4,6 +4,7 @@ import Sidebar from '../../components/Sidebar';
 import Modal from '../../components/Modal';
 import api from '../../api/axios';
 import { getGeoPosition } from '../../utils/geolocation';
+import { normalizeFileUrl } from '../../utils/fileUrl';
 import './Dashboard.css';
 import './BatchDetails.css';
 
@@ -167,14 +168,14 @@ const StudentBatchDetails = () => {
             <h3>Notes</h3>
             {batch.notes?.map((note, i) => (
               <div key={i} className="file-item card">
-                <a href={note.url} target="_blank" rel="noopener noreferrer">{note.name}</a>
+                <a href={normalizeFileUrl(note.url)} target="_blank" rel="noopener noreferrer">{note.name}</a>
               </div>
             ))}
 
             <h3>Syllabus</h3>
             {batch.syllabus?.map((syl, i) => (
               <div key={i} className="file-item card">
-                <a href={syl.url} target="_blank" rel="noopener noreferrer">{syl.name}</a>
+                <a href={normalizeFileUrl(syl.url)} target="_blank" rel="noopener noreferrer">{syl.name}</a>
               </div>
             ))}
           </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Sidebar.css';
@@ -97,6 +97,16 @@ const Sidebar = ({ items }) => {
   const location = useLocation();
   const { logout, profile, user } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
+
+  // Keep layout stable by matching content offset to actual sidebar width.
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    const root = document.documentElement;
+    root.style.setProperty('--sidebar-width', collapsed ? '64px' : '228px');
+    return () => {
+      root.style.setProperty('--sidebar-width', '228px');
+    };
+  }, [collapsed]);
 
   const activeSection = items.find(i => i.path === location.pathname);
   const activeSectionKey = activeSection ? (SECTION_MAP[activeSection.label] || 'overview') : 'overview';

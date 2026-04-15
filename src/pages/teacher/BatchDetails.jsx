@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Sidebar from '../../components/Sidebar';
 import Modal from '../../components/Modal';
 import api from '../../api/axios';
+import { normalizeFileUrl } from '../../utils/fileUrl';
 import './Dashboard.css';
 import './BatchDetails.css';
 
@@ -517,7 +518,7 @@ const BatchDetails = () => {
                         <span className="file-name">{note.name}</span>
                         <span className="file-date">{new Date(note.uploadedAt).toLocaleDateString()}</span>
                       </div>
-                      <a href={note.url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                      <a href={normalizeFileUrl(note.url)} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                         Download
                       </a>
                     </div>
@@ -536,7 +537,7 @@ const BatchDetails = () => {
                         <span className="file-name">{syl.name}</span>
                         <span className="file-date">{new Date(syl.uploadedAt).toLocaleDateString()}</span>
                       </div>
-                      <a href={syl.url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                      <a href={normalizeFileUrl(syl.url)} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                         Download
                       </a>
                     </div>
