@@ -1,0 +1,339 @@
+/* Org Admin shared styles */
+
+/* Shared dashboard layout (needed since org pages don't import Dashboard.css) */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-base);
+  overflow-x: hidden;
+}
+
+.dashboard-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 28px 32px;
+  max-width: calc(100vw - var(--sidebar-width));
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+/* Loading */
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px;
+  gap: 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border-default);
+  border-top-color: var(--primary-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Summary cards (used in Dashboard, Fees) */
+.fees-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.summary-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: all 0.24s ease;
+}
+.summary-card:hover { border-color: var(--border-default); box-shadow: var(--shadow-sm); }
+.summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.summary-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.summary-card.paid .summary-value { color: var(--success); }
+.summary-card.pending .summary-value { color: var(--warning); }
+
+/* Batches grid */
+.batches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 14px 0;
+}
+.pagination button {
+  padding: 8px 18px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--border-radius);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pagination button:hover:not(:disabled) { border-color: var(--primary-blue); color: var(--primary-blue); }
+.pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+.pagination span { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+/* Modal */
+.modal-actions-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Profile */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-subtle);
+  gap: 12px;
+}
+.profile-row:last-child { border-bottom: none; }
+.profile-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+.profile-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: right;
+  word-break: break-word;
+}
+.code-highlight {
+  font-weight: 700;
+  color: var(--primary-blue);
+  letter-spacing: 0.08em;
+  background: rgba(99,102,241,0.08);
+  padding: 2px 10px;
+  border-radius: var(--radius-sm);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 16px;
+}
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.status-badge.paid { background: rgba(34,197,94,0.1); color: var(--success); border: 1px solid rgba(34,197,94,0.2); }
+.status-badge.pending { background: rgba(217,119,6,0.1); color: var(--warning); border: 1px solid rgba(217,119,6,0.2); }
+
+.hint-text {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.empty-hint {
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 8px 0;
+}
+
+.pre-wrap { white-space: pre-wrap; }
+
+/* Chip selectors */
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 12px;
+}
+
+.chip {
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 7px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.chip:hover { border-color: var(--border-bright); }
+.chip.active {
+  border-color: rgba(99,102,241,0.3);
+  background: rgba(99,102,241,0.1);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+.chip:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Simple data table */
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.simple-table th,
+.simple-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+.simple-table th {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.simple-table td {
+  color: var(--text-primary);
+}
+
+/* Stack list (card-based items) */
+.stack-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stack-item {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius);
+  padding: 14px 16px;
+  background: var(--bg-surface);
+  transition: border-color 0.18s ease;
+}
+.stack-item:hover { border-color: var(--border-default); }
+
+/* Attendance student cards */
+.attendance-summary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendance-student-card {
+  padding: 18px 22px;
+}
+
+.attendance-student-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.attendance-student-head h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.attendance-ratio {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(34,197,94,0.1);
+  color: var(--success);
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+.attendance-dates p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+.attendance-dates p strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Filters section card */
+.filters-section {
+  margin-bottom: 24px;
+}
+.filters-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Form card */
+.form-card {
+  padding: 28px 32px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-content { margin-left: 0; padding: 20px; max-width: 100vw; padding-bottom: calc(var(--bottom-nav-height) + 18px); }
+  .form-card { padding: 20px; }
+  .fees-summary { grid-template-columns: 1fr 1fr; }
+  .batches-grid { grid-template-columns: 1fr; }
+  .profile-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,10 @@
+/* Org Teacher - minimal overrides; inherits from teacher and org-admin styles */
+.org-teacher-note {
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 8px 14px;
+  background: rgba(99,102,241,0.06);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(99,102,241,0.12);
+  margin-bottom: 16px;
+}

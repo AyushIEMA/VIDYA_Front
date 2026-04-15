@@ -1,0 +1,160 @@
+/* Student Batch Details */
+
+/* Tabs navigation */
+.tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border-subtle);
+  padding-bottom: 0;
+}
+.tabs button {
+  padding: 10px 22px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+}
+.tabs button:hover { color: var(--text-primary); }
+.tabs button.active {
+  color: var(--primary-blue);
+  font-weight: 600;
+  border-bottom-color: var(--primary-blue);
+}
+
+/* Class logs */
+.logs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.log-item {
+  padding: 16px 20px;
+}
+.log-item h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.log-item p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.log-item small {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Modal */
+.modal-actions-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.batch-detail-card {
+  margin-bottom: 24px;
+}
+
+.batch-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.detail-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.detail-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.batch-subject-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+.batch-subject-chip {
+  display: inline-block;
+  padding: 3px 12px;
+  background: rgba(99,102,241,0.1);
+  color: var(--primary-blue);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.batch-actions-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+/* Files section */
+.files-section {
+  margin-top: 20px;
+}
+.files-section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.files-section .file-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+}
+.files-section .file-item a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+}
+.files-section .file-item a:hover {
+  text-decoration: underline;
+}
+
+/* Review form */
+.form-card {
+  padding: 24px 28px;
+}
+.form-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .batch-detail-grid { grid-template-columns: 1fr; }
+  .batch-actions-row { flex-direction: column; }
+}

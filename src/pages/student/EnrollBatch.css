@@ -1,0 +1,92 @@
+/* Student Enroll Batch + Enroll Organization */
+
+.enroll-page .form-card {
+  max-width: 640px;
+}
+
+.search-hint {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.search-input-group {
+  display: flex;
+  gap: 10px;
+}
+.search-input-group input { flex: 1; }
+.search-input-group .btn { flex-shrink: 0; }
+
+/* Teacher/Org details card */
+.teacher-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+.teacher-details p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.teacher-details p strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Filters */
+.enroll-filters {
+  margin-bottom: 20px;
+}
+
+/* Loading inline */
+.loading-inline {
+  padding: 32px 16px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Fees highlight in batch cards */
+.fees-highlight {
+  margin-top: 6px;
+  font-weight: 600;
+  color: var(--primary-blue) !important;
+}
+
+/* Batch card overrides for enroll page */
+.enroll-page .batch-card {
+  padding: 20px 22px;
+}
+.enroll-page .batch-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.enroll-page .batch-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.enroll-page .batch-card p strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.enroll-page .batch-card .btn {
+  margin-top: 14px;
+}
+
+/* Section heading between filter and cards */
+.enroll-page h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.pre-wrap { white-space: pre-wrap; }
+
+@media (max-width: 640px) {
+  .search-input-group { flex-direction: column; }
+  .teacher-details { grid-template-columns: 1fr; }
+}

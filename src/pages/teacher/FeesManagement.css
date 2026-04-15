@@ -1,0 +1,245 @@
+/* Fees Management */
+
+/* Summary cards row */
+.fees-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.summary-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: all 0.24s ease;
+}
+.summary-card:hover { border-color: var(--border-default); box-shadow: var(--shadow-sm); }
+
+.summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.summary-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.summary-card.paid .summary-value { color: var(--success); }
+.summary-card.pending .summary-value { color: var(--warning); }
+
+/* Filters section */
+.filters-section { margin-bottom: 24px; }
+.filters-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+/* Unpaid students card */
+.unpaid-students {
+  margin-bottom: 20px;
+  border-left: 3px solid var(--warning);
+}
+.unpaid-students h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.unpaid-students p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Students fees list */
+.students-fees-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.student-fees-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.student-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.student-main-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.student-main-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.enrollment-count {
+  background: rgba(139,92,246,0.1);
+  color: var(--accent-violet);
+  border: 1px solid rgba(139,92,246,0.2);
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.student-join-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.not-joined-note {
+  color: var(--warning);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.student-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Batch fee row (per-batch inside student card) */
+.batch-fee-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+.batch-fee-row:last-child { border-bottom: none; }
+
+.batch-fee-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.batch-name-col {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 140px;
+}
+
+.batch-name-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.batch-class {
+  background: rgba(99,102,241,0.1);
+  color: var(--primary-blue);
+  border: 1px solid rgba(99,102,241,0.2);
+  padding: 2px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.fee-amounts {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.amount-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.amount-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.amount-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.amount-value.discount { color: var(--success); }
+.amount-value.final { color: var(--primary-blue); font-weight: 700; }
+
+.batch-fee-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.status-badge.paid { background: rgba(34,197,94,0.1); color: var(--success); border: 1px solid rgba(34,197,94,0.2); }
+.status-badge.pending { background: rgba(217,119,6,0.1); color: var(--warning); border: 1px solid rgba(217,119,6,0.2); }
+
+.paid-date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.no-fee-record {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.btn-sm {
+  font-size: 12px;
+  padding: 4px 12px;
+  min-height: 28px;
+}
+
+@media (max-width: 768px) {
+  .fees-summary { grid-template-columns: 1fr 1fr; }
+  .batch-fee-row { flex-direction: column; align-items: flex-start; }
+  .fee-amounts { flex-direction: row; }
+}

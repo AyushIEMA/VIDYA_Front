@@ -1,0 +1,171 @@
+/* Student My Batches */
+
+/* Batches grid (shared) */
+.batches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.batch-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.24s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.batch-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent-violet));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.batch-card:hover {
+  border-color: var(--border-default);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.batch-card:hover::before { transform: scaleX(1); }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding: 14px 0;
+}
+.pagination button {
+  padding: 8px 18px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--border-radius);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pagination button:hover:not(:disabled) { border-color: var(--primary-blue); color: var(--primary-blue); }
+.pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+.pagination span { font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+/* Modal actions */
+.modal-actions-row {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Teacher/Org group header */
+.teacher-group {
+  margin-bottom: 28px;
+}
+
+.teacher-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding: 14px 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--border-radius);
+}
+.teacher-group-header h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.batch-count {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(99,102,241,0.1);
+  color: var(--primary-blue);
+  border: 1px solid rgba(99,102,241,0.2);
+}
+
+/* Batch card inner structure */
+.batch-card .batch-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 18px 22px 0;
+  gap: 10px;
+}
+.batch-card .batch-info h4 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: rgba(99,102,241,0.1);
+  color: var(--primary-blue);
+  border: 1px solid rgba(99,102,241,0.22);
+  white-space: nowrap;
+}
+
+.batch-meta {
+  padding: 14px 22px 18px;
+}
+.batch-meta p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.batch-meta p strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.fee-info {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.discount-text {
+  color: var(--success) !important;
+  font-weight: 500;
+}
+
+.final-fee {
+  font-weight: 600;
+  color: var(--primary-blue) !important;
+}
+
+.btn-outline {
+  background: transparent;
+}
+
+.batch-card .btn {
+  margin: 0 22px 18px;
+}
+.batch-card .btn + .btn {
+  margin-top: 0;
+}
