@@ -55,10 +55,15 @@ const StudentBatchDetails = () => {
         });
         setModal({ open: true, title: 'Attendance', message: 'Attendance marked successfully.', isError: false });
       } catch (error) {
+        const serverMsg =
+          error?.response?.data?.error ||
+          error?.response?.data?.message ||
+          error?.message ||
+          'Unable to mark attendance.';
         setModal({
           open: true,
-          title: 'Location',
-          message: error?.message || error.response?.data?.error || 'Unable to get location.',
+          title: 'Attendance',
+          message: serverMsg,
           isError: true
         });
       } finally {
